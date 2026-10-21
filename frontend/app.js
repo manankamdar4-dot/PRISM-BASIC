@@ -57,7 +57,7 @@ async function api(path, options = {}) {
 
 async function supabaseAuth(path, body) {
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Set SUPABASE_URL and SUPABASE_ANON_KEY in backend/.env before signing in.')
+    throw new Error('Set SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY in backend/.env before signing in.')
   }
   const response = await fetch(`${supabaseUrl}/auth/v1/${path}`, {
     method: 'POST',

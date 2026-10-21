@@ -20,9 +20,17 @@ Use Node.js 20.19 or newer and npm.
    npm install --prefix backend
    ```
 
-2. Copy `backend/.env.example` to `backend/.env`. Set `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY`. Express sends the public anon key and URL to the browser through `/app-config.js`; the service-role key stays on the server.
+2. Copy `backend/.env.example` to `backend/.env`. Set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, and `SUPABASE_SECRET_KEY`. Express sends the public key and URL to the browser through `/app-config.js`; the secret key stays on the server. Existing projects can continue using the legacy anon and service-role environment variables as fallbacks.
 
-3. In the Supabase SQL editor, run the files in `database/migrations/` in numerical order. They create profiles, projects, task nodes, dependency edges, history tables, and notification triggers.
+3. In Supabase, open **Connect** and copy the **Session pooler** connection string. Put it in `SUPABASE_DB_URL` in `backend/.env`, replacing the password placeholder with your database password. Keep this file private; it is ignored by Git.
+
+4. From the repository root, apply the schema with one command:
+
+   ```powershell
+   npm run setup:db
+   ```
+
+   This runs the existing migration files in order. You do not need to edit or paste SQL. The command only creates or updates the database structure; it does not add sample project data.
 
 ## Run
 
@@ -63,3 +71,4 @@ Each authored HTML, CSS, JavaScript, and SQL source file ends with a `CODE WALKT
 - The app requires valid Supabase settings and applied SQL migrations. It does not use fake database responses.
 - The pages outside the core task workflow are intentionally simple views.
 # PRISMDD
+

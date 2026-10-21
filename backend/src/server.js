@@ -27,7 +27,7 @@ app.get('/api/health', (req, res) => {
 app.get('/app-config.js', (req, res) => {
   res.type('application/javascript').send(`window.PRISM_CONFIG = ${JSON.stringify({
     supabaseUrl: process.env.SUPABASE_URL || '',
-    supabaseAnonKey: process.env.SUPABASE_ANON_KEY || '',
+    supabaseAnonKey: process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY || '',
   })}`)
 })
 
