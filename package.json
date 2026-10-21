@@ -1,0 +1,9 @@
+{
+  "name": "prism-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix backend",
+    "start": "npm run start --prefix backend"
+  }
+}

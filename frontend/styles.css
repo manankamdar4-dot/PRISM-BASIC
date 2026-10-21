@@ -1,0 +1,137 @@
+/* PRISM uses a small set of colours and spacing values so pages feel consistent. */
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #202822;
+  background: #f4f6f3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #202822;
+  --muted: #69746d;
+  --line: #dfe5df;
+  --paper: #fff;
+  --green: #356b4f;
+  --green-dark: #234b36;
+  --soft-green: #eaf1eb;
+  --red: #a63b35;
+  --amber: #96631d;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: var(--green-dark); }
+.shell { min-height: 100vh; display: grid; grid-template-columns: 250px minmax(0, 1fr); }
+.sidebar { background: #fff; border-right: 1px solid var(--line); padding: 22px 14px; display: flex; flex-direction: column; gap: 24px; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 0 10px; text-decoration: none; color: var(--ink); }
+.brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: var(--green); color: white; font-weight: 700; }
+.brand strong { letter-spacing: .12em; font-size: 14px; }
+.brand small { display: block; color: var(--muted); letter-spacing: 0; font-size: 11px; margin-top: 2px; }
+.nav-label { margin: 0 10px 7px; color: #879189; text-transform: uppercase; font-size: 10px; letter-spacing: .12em; }
+.nav-links { display: grid; gap: 3px; }
+.nav-links a { text-decoration: none; color: #515e55; padding: 9px 10px; border-radius: 8px; font-size: 13px; }
+.nav-links a:hover, .nav-links a.active { background: var(--soft-green); color: var(--green-dark); }
+.sidebar-bottom { margin-top: auto; border-top: 1px solid var(--line); padding: 14px 10px 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.main { min-width: 0; }
+.topbar { height: 62px; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; }
+.topbar p { margin: 0; color: var(--muted); font-size: 13px; }
+.user-tools { display: flex; align-items: center; gap: 12px; }
+.user-label { color: var(--muted); font-size: 12px; }
+.content { width: min(1120px, 100%); padding: 32px 30px 64px; margin: 0 auto; }
+.eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; margin: 0 0 8px; }
+h1 { margin: 0; font-size: clamp(25px, 3vw, 34px); letter-spacing: -.035em; line-height: 1.15; }
+h2 { margin: 0; font-size: 18px; }
+h3 { margin: 0; font-size: 15px; }
+.lead { color: var(--muted); margin: 10px 0 0; max-width: 680px; line-height: 1.6; font-size: 14px; }
+.page-heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
+.page-heading .project-picker { width: min(280px, 45%); }
+.panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.panel + .panel { margin-top: 16px; }
+.panel-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 16px; }
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.stat span { color: var(--muted); font-size: 12px; }
+.stat strong { display: block; font-size: 28px; margin-top: 9px; font-weight: 600; }
+.stat small { color: var(--muted); display: block; margin-top: 5px; }
+.actions { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; cursor: pointer; border-radius: 8px; padding: 9px 13px; font-size: 13px; font-weight: 600; }
+.button:hover { border-color: #aebbb0; background: #f8faf8; }
+.button.primary { background: var(--green); color: white; border-color: var(--green); }
+.button.primary:hover { background: var(--green-dark); }
+.button.danger { color: var(--red); }
+.button.small { padding: 6px 9px; font-size: 12px; }
+.text-button { padding: 0; border: 0; color: var(--green-dark); background: none; cursor: pointer; font-size: 12px; }
+label { display: block; color: #465249; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+input, select, textarea { width: 100%; padding: 10px 11px; border: 1px solid #ccd5cd; border-radius: 8px; color: var(--ink); background: #fff; outline: none; }
+textarea { min-height: 86px; resize: vertical; }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #a6c2ad; outline-offset: 2px; }
+.field { min-width: 0; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+.form-grid .wide { grid-column: 1/-1; }
+.hint, .muted { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.message { display: none; border-radius: 8px; padding: 10px 12px; font-size: 13px; line-height: 1.5; margin: 12px 0; }
+.message.show { display: block; }
+.message.error { background: #fbefed; border: 1px solid #f0ceca; color: #83342e; }
+.message.success { background: #edf5ee; border: 1px solid #cfdfd1; color: #315a3b; }
+.message.info { background: #f0f3f0; border: 1px solid var(--line); color: #566159; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: #778179; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: 10px; border-bottom: 1px solid var(--line); }
+td { padding: 12px 10px; vertical-align: top; border-bottom: 1px solid #edf0ed; }
+tr:last-child td { border-bottom: 0; }
+.badge { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #eff2ef; color: #58635a; font-size: 11px; white-space: nowrap; }
+.badge.completed { color: #326342; background: #e8f2ea; }
+.badge.delayed { color: #983d35; background: #f9ecea; }
+.badge.in-progress { color: #80591a; background: #f8f0df; }
+.badge.affected { color: #923b34; background: #f9e9e7; }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); font-size: 13px; }
+.empty strong { color: var(--ink); display: block; margin-bottom: 5px; }
+.split { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: 16px; }
+.hero { padding: clamp(30px, 7vw, 74px); background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.hero h1 { max-width: 650px; font-size: clamp(34px, 5vw, 54px); }
+.hero .lead { font-size: 16px; margin: 18px 0 24px; }
+.hero-mark { color: var(--green); font-size: 13px; letter-spacing: .15em; font-weight: 700; margin-bottom: 26px; }
+.steps { counter-reset: steps; display: grid; gap: 10px; }
+.step { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 9px; }
+.step::before { counter-increment: steps; content: counter(steps); color: var(--green); font-weight: 700; }
+.step p { margin: 0; font-size: 13px; line-height: 1.5; }
+.dependency-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.dependency-chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 7px; color: #58635a; font-size: 11px; }
+.footer-note { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 960px) {
+  .shell { grid-template-columns: 205px minmax(0,1fr); }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .topbar { padding: 0 20px; }
+  .content { padding: 26px 20px 48px; }
+}
+@media (max-width: 680px) {
+  .shell { display: block; }
+  .sidebar { border-right: 0; border-bottom: 1px solid var(--line); padding: 13px; gap: 12px; }
+  .sidebar nav { overflow-x: auto; }
+  .nav-label, .sidebar-bottom { display: none; }
+  .nav-links { display: flex; width: max-content; }
+  .nav-links a { padding: 8px 10px; }
+  .topbar { height: 50px; padding: 0 14px; }
+  .content { padding: 22px 14px 40px; }
+  .page-heading { align-items: flex-start; flex-direction: column; }
+  .page-heading .project-picker { width: 100%; }
+  .grid-2, .grid-3, .grid-4, .split, .form-grid { grid-template-columns: 1fr; }
+  .form-grid .wide { grid-column: auto; }
+  .stat { padding: 14px; }
+  .stat strong { font-size: 24px; }
+  .user-label { display: none; }
+}
+
+/*
+CODE WALKTHROUGH
+1. The :root section defines shared colours and the card corner size so the entire site has a consistent look.
+2. The shell, sidebar, topbar, and content rules create the main two-column page frame; the mobile media query stacks it for narrow screens.
+3. Grid and stat styles arrange dashboard numbers into equal columns.
+4. Button, form, table, badge, and message styles give the project forms and data tables consistent readable controls.
+5. Focus styles make keyboard navigation visible, while hover styles give simple feedback without animation libraries.
+6. The final media queries adjust navigation, grids, and spacing for tablets and phones. This file demonstrates CSS selectors, variables, the box model, Grid, Flexbox, and responsive design.
+*/
