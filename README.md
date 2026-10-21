@@ -24,7 +24,9 @@ Use Node.js 20.19 or newer and npm.
 
 3. In Supabase, open **Connect** and copy the **Session pooler** connection string. Put it in `SUPABASE_DB_URL` in `backend/.env`, replacing the password placeholder with your database password. Keep this file private; it is ignored by Git.
 
-4. From the repository root, apply the schema with one command:
+4. In Supabase, open **Database → Settings → SSL Configuration** and download the database CA certificate. Save it as `backend/supabase-ca.cer`. Put `backend/supabase-ca.cer` in `SUPABASE_DB_CA_CERT` in `backend/.env`. The certificate lets Node verify Supabase's database server during the encrypted connection; the certificate file is ignored by Git.
+
+5. From the repository root, apply the schema with one command:
 
    ```powershell
    npm run setup:db
